@@ -1,0 +1,65 @@
+schema: spec-driven
+
+context: |
+  技术栈:
+  - 后端: Python 3.9+ | FastAPI 0.104+ | SQLAlchemy 2.0+ | MySQL 8.0+
+  - 前端用户端: Vue 3.3+ | Vite 5.0+ | Element Plus 2.4+ | Pinia 2.1+ | Axios 1.6+
+  - 前端管理端: Vue 3.3+ | Vite 5.0+ | Element Plus 2.4+ | Pinia 2.1+ | Axios 1.6+
+  
+  系统架构:
+  - RESTful API 设计
+  - JWT 认证（2小时有效期）
+  - 密码 bcrypt 加密
+  - 开发环境开启 CORS
+  - Pydantic 数据验证
+  
+  代码规范:
+  - Python: 遵循 PEP 8 规范，使用 Pydantic 模型进行类型标注
+  - JavaScript/Vue: 使用 Composition API，命名用 camelCase，字符串用单引号
+  - API 端点: 统一使用 `/api/模块名称` 前缀
+  - 数据库: SQLAlchemy ORM 模型位于 `backend/app/models/`
+  - 数据模型: Pydantic 模型位于 `backend/app/schemas/`
+  - 业务逻辑: 业务服务层位于 `backend/app/services/`
+  - 路由层: API 端点位于 `backend/app/api/`
+  
+  业务领域: 小学一年级口算练习应用
+  - 难度分级: 10/20/50/100 以内加减法
+  - 趣味化功能: 连胜系统、成就徽章、排行榜、星星经济
+  - 用户角色: 家长、管理员
+  - 多孩子档案: 支持一个账号管理多个孩子
+  
+  目录结构:
+  - 后端入口: `backend/app/main.py` 是 FastAPI 应用入口点
+  - 用户端前端: 移动端 H5 位于 `frontend-user/`，开发端口 3000
+  - 管理端前端: PC 端后台位于 `frontend-admin/`，开发端口 3001
+  - 数据库脚本: SQL 建表脚本位于 `docs/database.sql`，共 14 张表
+  
+  测试规范:
+  - 当前暂无自动化测试
+  - 通过 http://localhost:8000/docs 手动测试 API
+  
+  环境配置:
+  - 开发环境配置在 `backend/.env`
+  - 默认管理员账号: username=admin, password=admin123
+  - API 文档: Swagger UI 访问 /docs，ReDoc 访问 /redoc
+
+rules:
+  proposal:
+    - 详细描述口算练习功能的用户使用场景
+    - 方案中必须包含趣味化元素（连胜、成就、排行榜等）
+    - 区分家长端后台管理和孩子端练习体验
+    - 评估功能对一年级学生的技术可行性
+
+  tasks:
+    - 后端任务拆解顺序: models(模型) → schemas(数据结构) → services(业务逻辑) → api routes(接口)
+    - 前端任务拆解顺序: components(组件) → pages(页面) → api calls(接口调用) → state stores(状态管理)
+    - 任务中必须包含 API 端点设计方案
+    - 根据用户完成旅程标记任务优先级
+
+  implementation:
+    - 遵循 `backend/app/core/` 中的现有代码模式处理配置和安全
+    - 所有请求响应模型必须使用 Pydantic schemas
+    - 使用 HTTPException 添加适当的错误处理
+    - Vue 组件使用 `<script setup>` 语法和 Composition API
+    - 调试时添加 console.log（生产环境前移除）
+    - API 基础 URL 根据环境保持可配置

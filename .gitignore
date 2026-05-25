@@ -1,0 +1,52 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+/.history/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+.DS_Store
+
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+*.class
+
+/app-log
+LOG_HOME_IS_UNDEFINED/
+LOG_PATH_IS_UNDEFINED/
+
+work/
+logs/
+*.log
+/rest-client.env.json
+
+#maven
+.flattened-pom.xml
+
+### VS Code ###
+.vscode/
+
+### lingma ###
+/.lingma/

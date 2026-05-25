@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: oral_arithmetic_backend_dev
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_HOST: localhost
+      DATABASE_PORT: 3306
+      DATABASE_NAME: oral_arithmetic
+      DATABASE_USER: root
+      DATABASE_PASSWORD: testtest
+      JWT_SECRET_KEY: shaun_ryan
+    networks:
+      - oral_arithmetic_network
+    volumes:
+      - ./backend:/app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+networks:
+  oral_arithmetic_network:
+    driver: bridge
